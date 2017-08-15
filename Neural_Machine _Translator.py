@@ -13,3 +13,7 @@ from babel.dates import format_date
 from nmt_utils import *
 import matplotlib.pyplot as plt
 %matplotlib inline
+
+
+m = 10000
+dataset, human_vocab, machine_vocab, inv_machine_vocab = load_dataset(m)
