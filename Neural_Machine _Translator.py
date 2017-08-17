@@ -17,3 +17,5 @@ import matplotlib.pyplot as plt
 
 m = 10000
 dataset, human_vocab, machine_vocab, inv_machine_vocab = load_dataset(m)
+
+dataset[:10]
