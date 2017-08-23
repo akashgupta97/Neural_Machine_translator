@@ -31,4 +31,23 @@ dataset[:10]
  ('08 sep 1999', '1999-09-08'),
  ('1 jan 1981', '1981-01-01'),
  ('monday may 22 1995', '1995-05-22')]
+ 
+'''
+
+
+Tx = 30
+Ty = 10
+X, Y, Xoh, Yoh = preprocess_data(dataset, human_vocab, machine_vocab, Tx, Ty)
+
+print("X.shape:", X.shape)
+print("Y.shape:", Y.shape)
+print("Xoh.shape:", Xoh.shape)
+print("Yoh.shape:", Yoh.shape)
+
+'''
+
+X.shape: (10000, 30)
+Y.shape: (10000, 10)
+Xoh.shape: (10000, 30, 37)
+Yoh.shape: (10000, 10, 11)
 '''
