@@ -51,3 +51,41 @@ Y.shape: (10000, 10)
 Xoh.shape: (10000, 30, 37)
 Yoh.shape: (10000, 10, 11)
 '''
+
+index = 0
+print("Source date:", dataset[index][0])
+print("Target date:", dataset[index][1])
+print()
+print("Source after preprocessing (indices):", X[index])
+print("Target after preprocessing (indices):", Y[index])
+print()
+print("Source after preprocessing (one-hot):", Xoh[index])
+print("Target after preprocessing (one-hot):", Yoh[index])
+
+'''
+
+Source date: 9 may 1998
+Target date: 1998-05-09
+
+Source after preprocessing (indices): [12  0 24 13 34  0  4 12 12 11 36 36 36 36 36 36 36 36 36 36 36 36 36 36 36
+ 36 36 36 36 36]
+Target after preprocessing (indices): [ 2 10 10  9  0  1  6  0  1 10]
+
+Source after preprocessing (one-hot): [[ 0.  0.  0. ...,  0.  0.  0.]
+ [ 1.  0.  0. ...,  0.  0.  0.]
+ [ 0.  0.  0. ...,  0.  0.  0.]
+ ..., 
+ [ 0.  0.  0. ...,  0.  0.  1.]
+ [ 0.  0.  0. ...,  0.  0.  1.]
+ [ 0.  0.  0. ...,  0.  0.  1.]]
+Target after preprocessing (one-hot): [[ 0.  0.  1.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  1.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  1.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  1.  0.]
+ [ 1.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  1.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  1.  0.  0.  0.  0.]
+ [ 1.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  1.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  1.]]
+'''
