@@ -89,3 +89,10 @@ Target after preprocessing (one-hot): [[ 0.  0.  1.  0.  0.  0.  0.  0.  0.  0. 
  [ 0.  1.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
  [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  1.]]
 '''
+
+# Defined shared layers as global variables
+repeator = RepeatVector(Tx)
+concatenator = Concatenate(axis=-1)
+densor = Dense(1, activation = "relu")
+activator = Activation(softmax, name='attention_weights') # We are using a custom softmax(axis = 1) loaded in this notebook
+dotor = Dot(axes = 1)
