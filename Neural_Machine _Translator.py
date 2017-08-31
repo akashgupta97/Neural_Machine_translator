@@ -96,3 +96,19 @@ concatenator = Concatenate(axis=-1)
 densor = Dense(1, activation = "relu")
 activator = Activation(softmax, name='attention_weights') # We are using a custom softmax(axis = 1) loaded in this notebook
 dotor = Dot(axes = 1)
+
+
+# GRADED FUNCTION: one_step_attention
+
+def one_step_attention(a, s_prev):
+    """
+    Performs one step of attention: Outputs a context vector computed as a dot product of the attention weights
+    "alphas" and the hidden states "a" of the Bi-LSTM.
+
+    Arguments:
+    a -- hidden state output of the Bi-LSTM, numpy-array of shape (m, Tx, 2*n_a)
+    s_prev -- previous hidden state of the (post-attention) LSTM, numpy-array of shape (m, n_s)
+
+    Returns:
+    context -- context vector, input of the next (post-attetion) LSTM cell
+    """
