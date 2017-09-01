@@ -112,3 +112,18 @@ def one_step_attention(a, s_prev):
     Returns:
     context -- context vector, input of the next (post-attetion) LSTM cell
     """
+
+    ### START CODE HERE ###
+    # Use repeator to repeat s_prev to be of shape (m, Tx, n_s) so that you can concatenate it with all hidden states "a" (≈ 1 line)
+    s_prev = repeator(s_prev)
+    # Use concatenator to concatenate a and s_prev on the last axis (≈ 1 line)
+    concat = concatenator([a, s_prev])
+    # Use densor to propagate concat through a small fully-connected neural network to compute the "energies" variable e. (≈1 lines)
+    e = densor(concat)
+    # Use activator and e to compute the attention weights "alphas" (≈ 1 line)
+    alphas = activator(e)
+    # Use dotor together with "alphas" and "a" to compute the context vector to be given to the next (post-attention) LSTM-cell (≈ 1 line)
+    context = dotor([alphas, a])
+    ### END CODE HERE ###
+
+    return context
