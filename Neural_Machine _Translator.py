@@ -127,3 +127,10 @@ def one_step_attention(a, s_prev):
     ### END CODE HERE ###
 
     return context
+
+
+
+n_a = 64
+n_s = 128
+post_activation_LSTM_cell = LSTM(n_s, return_state = True)
+output_layer = Dense(len(machine_vocab), activation=softmax)
