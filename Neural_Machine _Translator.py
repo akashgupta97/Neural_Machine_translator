@@ -134,3 +134,21 @@ n_a = 64
 n_s = 128
 post_activation_LSTM_cell = LSTM(n_s, return_state = True)
 output_layer = Dense(len(machine_vocab), activation=softmax)
+
+
+
+# GRADED FUNCTION: model# GRADED
+
+def model(Tx, Ty, n_a, n_s, human_vocab_size, machine_vocab_size):
+    """
+    Arguments:
+    Tx -- length of the input sequence
+    Ty -- length of the output sequence
+    n_a -- hidden state size of the Bi-LSTM
+    n_s -- hidden state size of the post-attention LSTM
+    human_vocab_size -- size of the python dictionary "human_vocab"
+    machine_vocab_size -- size of the python dictionary "machine_vocab"
+
+    Returns:
+    model -- Keras model instance
+    """
