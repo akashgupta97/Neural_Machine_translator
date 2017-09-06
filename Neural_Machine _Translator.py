@@ -152,3 +152,28 @@ def model(Tx, Ty, n_a, n_s, human_vocab_size, machine_vocab_size):
     Returns:
     model -- Keras model instance
     """
+
+    # Define the inputs of your model with a shape (Tx,)
+    # Define s0 and c0, initial hidden state for the decoder LSTM of shape (n_s,)
+    X = Input(shape=(Tx, human_vocab_size))
+    s0 = Input(shape=(n_s,), name='s0')
+    c0 = Input(shape=(n_s,), name='c0')
+    s = s0
+    c = c0
+
+    # Initialize empty list of outputs
+    outputs = []
+
+    ### START CODE HERE ###
+
+    # Step 1: Define your pre-attention Bi-LSTM. Remember to use return_sequences=True. (≈ 1 line)
+    a = Bidirectional(LSTM(n_a, return_sequences=True))(X)
+
+    # Step 2: Iterate for Ty steps
+    for t in range(Ty):
+        # Step 2.A: Perform one step of the attention mechanism to get back the context vector at step t (≈ 1 line)
+        context = one_step_attention(a, s)
+
+        # Step 2.B: Apply the post-attention LSTM cell to the "context" vector.
+        # Don't forget to pass: initial_state = [hidden state, cell state] (≈ 1 line)
+        s, _, c = post_activation_LSTM_cell(context, initial_state=[s, c])
