@@ -177,3 +177,16 @@ def model(Tx, Ty, n_a, n_s, human_vocab_size, machine_vocab_size):
         # Step 2.B: Apply the post-attention LSTM cell to the "context" vector.
         # Don't forget to pass: initial_state = [hidden state, cell state] (≈ 1 line)
         s, _, c = post_activation_LSTM_cell(context, initial_state=[s, c])
+
+        # Step 2.C: Apply Dense layer to the hidden state output of the post-attention LSTM (≈ 1 line)
+        out = output_layer(s)
+
+        # Step 2.D: Append "out" to the "outputs" list (≈ 1 line)
+        outputs.append(out)
+
+    # Step 3: Create model instance taking three inputs and returning the list of outputs. (≈ 1 line)
+    model = Model([X, s0, c0], outputs)
+
+    ### END CODE HERE ###
+
+    return model
