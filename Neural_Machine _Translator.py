@@ -339,3 +339,8 @@ ________________________________________________________________________________
 opt = Adam(lr = 0.005, beta_1=0.9, beta_2=0.999, decay = 0.01)
 model.compile(loss='categorical_crossentropy', optimizer=opt, metrics=['accuracy'])
 ### END CODE HERE ###
+
+
+s0 = np.zeros((m, n_s))
+c0 = np.zeros((m, n_s))
+outputs = list(Yoh.swapaxes(0,1))
