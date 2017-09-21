@@ -363,4 +363,22 @@ for example in EXAMPLES:
     print("source:", example)
     print("output:", ''.join(output))
 
-    
+'''
+source: 3 May 1979
+output: 1979-05-03
+source: 5 April 09
+output: 2009-03-05
+source: 21th of August 2016
+output: 2016-08-01
+source: Tue 10 Jul 2007
+output: 2007-07-10
+source: Saturday May 9 2018
+output: 2018-05-09
+source: March 3 2001
+output: 2001-03-03
+source: March 3rd 2001
+output: 2001-03-03
+source: 1 March 2001
+output: 2001-03-01
+
+'''
