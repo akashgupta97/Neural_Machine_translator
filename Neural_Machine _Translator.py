@@ -382,3 +382,146 @@ source: 1 March 2001
 output: 2001-03-01
 
 '''
+
+
+
+
+
+model.summary()
+
+
+'''
+
+____________________________________________________________________________________________________
+Layer (type)                     Output Shape          Param #     Connected to                     
+====================================================================================================
+input_2 (InputLayer)             (None, 30, 37)        0                                            
+____________________________________________________________________________________________________
+s0 (InputLayer)                  (None, 128)           0                                            
+____________________________________________________________________________________________________
+bidirectional_1 (Bidirectional)  (None, 30, 128)       52224       input_2[0][0]                    
+____________________________________________________________________________________________________
+repeat_vector_1 (RepeatVector)   (None, 30, 128)       0           s0[0][0]                         
+                                                                   lstm_1[0][0]                     
+                                                                   lstm_1[1][0]                     
+                                                                   lstm_1[2][0]                     
+                                                                   lstm_1[3][0]                     
+                                                                   lstm_1[4][0]                     
+                                                                   lstm_1[5][0]                     
+                                                                   lstm_1[6][0]                     
+                                                                   lstm_1[7][0]                     
+                                                                   lstm_1[8][0]                     
+____________________________________________________________________________________________________
+concatenate_1 (Concatenate)      (None, 30, 256)       0           bidirectional_1[0][0]            
+                                                                   repeat_vector_1[0][0]            
+                                                                   bidirectional_1[0][0]            
+                                                                   repeat_vector_1[1][0]            
+                                                                   bidirectional_1[0][0]            
+                                                                   repeat_vector_1[2][0]            
+                                                                   bidirectional_1[0][0]            
+                                                                   repeat_vector_1[3][0]            
+                                                                   bidirectional_1[0][0]            
+                                                                   repeat_vector_1[4][0]            
+                                                                   bidirectional_1[0][0]            
+                                                                   repeat_vector_1[5][0]            
+                                                                   bidirectional_1[0][0]            
+                                                                   repeat_vector_1[6][0]            
+                                                                   bidirectional_1[0][0]            
+                                                                   repeat_vector_1[7][0]            
+                                                                   bidirectional_1[0][0]            
+                                                                   repeat_vector_1[8][0]            
+                                                                   bidirectional_1[0][0]            
+                                                                   repeat_vector_1[9][0]            
+____________________________________________________________________________________________________
+dense_1 (Dense)                  (None, 30, 1)         257         concatenate_1[0][0]              
+                                                                   concatenate_1[1][0]              
+                                                                   concatenate_1[2][0]              
+                                                                   concatenate_1[3][0]              
+                                                                   concatenate_1[4][0]              
+                                                                   concatenate_1[5][0]              
+                                                                   concatenate_1[6][0]              
+                                                                   concatenate_1[7][0]              
+                                                                   concatenate_1[8][0]              
+                                                                   concatenate_1[9][0]              
+____________________________________________________________________________________________________
+attention_weights (Activation)   (None, 30, 1)         0           dense_1[0][0]                    
+                                                                   dense_1[1][0]                    
+                                                                   dense_1[2][0]                    
+                                                                   dense_1[3][0]                    
+                                                                   dense_1[4][0]                    
+                                                                   dense_1[5][0]                    
+                                                                   dense_1[6][0]                    
+                                                                   dense_1[7][0]                    
+                                                                   dense_1[8][0]                    
+                                                                   dense_1[9][0]                    
+____________________________________________________________________________________________________
+dot_1 (Dot)                      (None, 1, 128)        0           attention_weights[0][0]          
+                                                                   bidirectional_1[0][0]            
+                                                                   attention_weights[1][0]          
+                                                                   bidirectional_1[0][0]            
+                                                                   attention_weights[2][0]          
+                                                                   bidirectional_1[0][0]            
+                                                                   attention_weights[3][0]          
+                                                                   bidirectional_1[0][0]            
+                                                                   attention_weights[4][0]          
+                                                                   bidirectional_1[0][0]            
+                                                                   attention_weights[5][0]          
+                                                                   bidirectional_1[0][0]            
+                                                                   attention_weights[6][0]          
+                                                                   bidirectional_1[0][0]            
+                                                                   attention_weights[7][0]          
+                                                                   bidirectional_1[0][0]            
+                                                                   attention_weights[8][0]          
+                                                                   bidirectional_1[0][0]            
+                                                                   attention_weights[9][0]          
+                                                                   bidirectional_1[0][0]            
+____________________________________________________________________________________________________
+c0 (InputLayer)                  (None, 128)           0                                            
+____________________________________________________________________________________________________
+lstm_1 (LSTM)                    [(None, 128), (None,  131584      dot_1[0][0]                      
+                                                                   s0[0][0]                         
+                                                                   c0[0][0]                         
+                                                                   dot_1[1][0]                      
+                                                                   lstm_1[0][0]                     
+                                                                   lstm_1[0][2]                     
+                                                                   dot_1[2][0]                      
+                                                                   lstm_1[1][0]                     
+                                                                   lstm_1[1][2]                     
+                                                                   dot_1[3][0]                      
+                                                                   lstm_1[2][0]                     
+                                                                   lstm_1[2][2]                     
+                                                                   dot_1[4][0]                      
+                                                                   lstm_1[3][0]                     
+                                                                   lstm_1[3][2]                     
+                                                                   dot_1[5][0]                      
+                                                                   lstm_1[4][0]                     
+                                                                   lstm_1[4][2]                     
+                                                                   dot_1[6][0]                      
+                                                                   lstm_1[5][0]                     
+                                                                   lstm_1[5][2]                     
+                                                                   dot_1[7][0]                      
+                                                                   lstm_1[6][0]                     
+                                                                   lstm_1[6][2]                     
+                                                                   dot_1[8][0]                      
+                                                                   lstm_1[7][0]                     
+                                                                   lstm_1[7][2]                     
+                                                                   dot_1[9][0]                      
+                                                                   lstm_1[8][0]                     
+                                                                   lstm_1[8][2]                     
+____________________________________________________________________________________________________
+dense_2 (Dense)                  (None, 11)            1419        lstm_1[0][0]                     
+                                                                   lstm_1[1][0]                     
+                                                                   lstm_1[2][0]                     
+                                                                   lstm_1[3][0]                     
+                                                                   lstm_1[4][0]                     
+                                                                   lstm_1[5][0]                     
+                                                                   lstm_1[6][0]                     
+                                                                   lstm_1[7][0]                     
+                                                                   lstm_1[8][0]                     
+                                                                   lstm_1[9][0]                     
+====================================================================================================
+Total params: 185,484
+Trainable params: 185,484
+Non-trainable params: 0
+____________________________________________________________________________________________________
+'''
