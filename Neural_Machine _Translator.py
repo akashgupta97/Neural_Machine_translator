@@ -525,3 +525,6 @@ Trainable params: 185,484
 Non-trainable params: 0
 ____________________________________________________________________________________________________
 '''
+
+
+attention_map = plot_attention_map(model, human_vocab, inv_machine_vocab, "Tuesday April 08 1993", num = 6, n_s = 128)
